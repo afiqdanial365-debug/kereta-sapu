@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kereta Sapu Service Booking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: radial-gradient(circle, #222, #000);
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.container {
+    max-width: 750px;
+    margin: -30px auto 30px;
+    background: #111;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.price-list {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.price-list p {
+    margin: 10px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #333;
+    margin: 25px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, textarea {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1f1f1f;
+    color: #fff;
+    font-size: 14px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #aaa;
+}
+
+select {
+    appearance: none;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+button {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37,211,102,0.4);
+}
+
+footer {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🥷🏻 KERETA SAPU SERVICE 🥷🏻</h1>
+    <p>Available 24 Hours (If Free)</p>
+    <p>Price Includes 4 Person</p>
+</header>
+
+<div class="container">
+
+<h2>🚗 Service Price List</h2>
+
+<div class="price-list">
+    <p><span>UITM / Housing ➡️ Pekan</span><span>RM10</span></p>
+    <p><span>UITM ➡️ Area Dobi & Aliyah</span><span>RM4</span></p>
+    <p><span>UITM ➡️ Pasar Malam / Unires</span><span>RM5</span></p>
+    <p><span>UITM ➡️ KTM</span><span>RM7</span></p>
+    <p><span>UITM ➡️ Housing Area</span><span>RM4</span></p>
+</div>
+
+<hr>
+
+<h2>📅 Book Your Ride</h2>
+
+<form onsubmit="sendWhatsApp(); return false;">
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<select id="route" required>
+<option value="">Select Route</option>
+<option>UITM / Housing ➡️ Pekan (RM10)</option>
+<option>UITM ➡️ Area Dobi & Aliyah (RM4)</option>
+<option>UITM ➡️ Pasar Malam / Unires (RM5)</option>
+<option>UITM ➡️ KTM (RM7)</option>
+<option>UITM ➡️ Housing Area (RM4)</option>
+</select>
+
+<input type="date" id="date" required>
+<input type="time" id="time" required>
+
+<textarea id="note" placeholder="Extra Notes (optional)"></textarea>
+
+<button type="submit">Book via WhatsApp</button>
+
+</form>
+
+</div>
+
+<footer>
+    <p>📲 WhatsApp: 018-4035733</p>
+</footer>
+
+<script>
+function sendWhatsApp() {
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let route = document.getElementById("route").value;
+let date = document.getElementById("date").value;
+let time = document.getElementById("time").value;
+let note = document.getElementById("note").value;
+
+let message =
+"🚗 *Kereta Sapu Booking* 🚗%0A%0A" +
+"Name: " + name + "%0A" +
+"Phone: " + phone + "%0A" +
+"Route: " + route + "%0A" +
+"Date: " + date + "%0A" +
+"Time: " + time + "%0A" +
+"Note: " + note;
+
+window.open("https://wa.me/60184035733?text=" + message, "_blank");
+}
+</script>
+
+</body>
+</html>
